@@ -9,31 +9,34 @@ public class App {
     public static void main(String[] args) {
         Scanner user_input = new Scanner(System.in);
         double height, weight, BMI;
-        String height1, weight1;
+
 
         System.out.print("Please enter you height in inches ");
-        height1 = user_input.nextLine();
-
-        try {
-            Double.parseDouble(height1);
+        do {
+            try {
+                user_input = new Scanner(System.in);
+                height = user_input.nextDouble();
+            } catch (Exception ex) {
+                height = -1;
+                System.out.println("Invalid input");
+            }
         }
-        catch (Exception ex){
-            System.out.println("Invalid input");
-            System.exit(1);
-        }
-        height = Double.parseDouble(height1);
+        while (height == -1);
 
         System.out.print("Please enter you weight in pounds ");
-        weight1 = user_input.nextLine();
-
-        try {
-            Double.parseDouble(weight1);
+        do {
+            try
+            {
+                user_input = new Scanner(System.in);
+                weight = user_input.nextInt();
+            }
+            catch (Exception ex)
+            {
+                weight = -1;
+                System.out.println("Invalid input");
+            }
         }
-        catch (Exception ex){
-            System.out.println("Invalid input");
-            System.exit(1);
-        }
-        weight = Double.parseDouble(weight1);
+        while (weight == -1);
 
         BMI = (weight / (height * height)) * 703;
 
